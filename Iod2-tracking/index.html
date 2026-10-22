@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startical SCOPE</title>
+  <link
+    rel="icon"
+    type="image/png"
+    href="/assets/AF_STARTICAL_LOG_RGB_POS.png"
+  >
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script defer src="vendor/leaflet/leaflet.js"></script>
+  <script defer src="vendor/satellite/satellite.min.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+
+<body>
+
+
+<main class="tools-hub">
+
+  
+
+  <section
+    class="orbit-panel"
+    aria-label="IOD2 orbital tracking"
+  >
+
+    <div class="orbit-top">
+      <div>
+        <span class="eyebrow span-dec95428">
+          ORBITAL VIEW
+        </span>
+
+        <h2 id="sat-name">
+          IOD2 <span class="live-dot"></span>
+        </h2>
+      </div>
+
+      <div class="orbit-actions">
+        <button
+          id="follow"
+          aria-pressed="true"
+          class="button-af6fc030"
+        >
+          Tracking enabled
+        </button>
+
+        <button
+          id="refresh"
+          class="button-66c668b9"
+        >
+          Update TLE
+        </button>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+
+      <div
+        id="map"
+        aria-label="Estimated orbital position map"
+        class="div-a7749c2e"
+      ></div>
+
+      <div class="map-tag">
+        ESTIMATED POSITION · SGP4 · ILLUSTRATIVE MAP
+        <span id="utc">—</span>
+      </div>
+
+    </div>
+
+    <div class="metrics">
+
+      <div>
+        <span class="span-14424487">
+          LATITUDE
+        </span>
+        <strong
+          id="lat"
+          class="strong-3828ce7e"
+        >
+          —
+        </strong>
+      </div>
+
+      <div>
+        <span class="span-84f22453">
+          LONGITUDE
+        </span>
+        <strong
+          id="lon"
+          class="strong-2eb37ad2"
+        >
+          —
+        </strong>
+      </div>
+
+      <div>
+        <span class="span-5e10101e">
+          ALTITUDE
+        </span>
+        <strong
+          id="alt"
+          class="strong-7548088a"
+        >
+          —
+        </strong>
+      </div>
+
+      <div>
+        <span class="span-daa87218">
+          ORBITAL VELOCITY
+        </span>
+        <strong
+          id="speed"
+          class="strong-cef51fbd"
+        >
+          —
+        </strong>
+      </div>
+
+    </div>
+
+    <div class="orbit-bottom">
+
+      <span>
+        <i class="legend past"></i>
+        Last 45 min
+        &nbsp;
+        <i class="legend future"></i>
+        Next 90 min
+      </span>
+
+      <span
+        id="status"
+        role="status"
+        aria-live="polite"
+      >
+        Loading orbital data…
+      </span>
+
+    </div>
+
+    <p
+      class="orbit-note"
+      id="tle-info"
+    >
+      Position calculated every second. This is not telemetry received from the satellite.
+    </p>
+
+  </section>
+
+
+  
+</body>
+</html>
