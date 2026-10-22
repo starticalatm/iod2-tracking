@@ -206,9 +206,7 @@ function applyTle(data, mode) {
   tleMode = mode;
   lastTrack = 0;
 
-  const name = String(
-    data.satellite || 'IOD-2'
-  );
+  const name = 'IOD-2';
 
   $('sat-name').firstChild.textContent =
     name + ' ';
