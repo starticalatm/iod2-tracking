@@ -1,6 +1,6 @@
 
 /* ========================================
-   IOD2 STARTICAL - ORBITAL TRACKING
+   IOD-2 STARTICAL - ORBITAL TRACKING
 
    NORAD: 64538
    Orbital data: local tle.json
@@ -100,7 +100,7 @@ function validateTle(line1, line2) {
     line1.slice(2, 7) !== NORAD_ID ||
     line2.slice(2, 7) !== NORAD_ID
   ) {
-    throw new Error('Invalid IOD2 TLE.');
+    throw new Error('Invalid IOD-2 TLE.');
   }
 
   const candidate = satellite.twoline2satrec(
@@ -207,7 +207,7 @@ function applyTle(data, mode) {
   lastTrack = 0;
 
   const name = String(
-    data.satellite || 'IOD2'
+    data.satellite || 'IOD-2'
   );
 
   $('sat-name').firstChild.textContent =
@@ -400,8 +400,8 @@ function tick() {
       ) / 86400000;
 
     let message = tleMode === 'published'
-      ? 'IOD2 · TLE loaded from GitHub Pages'
-      : 'IOD2 · Using cached TLE';
+      ? 'IOD-2 · TLE loaded from GitHub Pages'
+      : 'IOD-2 · Using cached TLE';
 
     if (age > 3) {
       message +=
@@ -457,7 +457,7 @@ async function loadTle() {
   $('refresh').disabled = true;
 
   if (!record) {
-    status('Loading IOD2 orbital data…');
+    status('Loading IOD-2 orbital data…');
   }
 
   try {
@@ -634,7 +634,7 @@ if (!window.L || !window.satellite) {
       iconSize: [22, 22],
       iconAnchor: [11, 11]
     })
-  }).bindTooltip('IOD2', {
+  }).bindTooltip('IOD-2', {
     permanent: true,
     direction: 'top',
     offset: [0, -14]
