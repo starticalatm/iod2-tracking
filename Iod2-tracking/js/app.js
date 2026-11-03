@@ -586,16 +586,40 @@ if (!window.L || !window.satellite) {
   map.getContainer().style.background =
     '#080f19';
 
-  map.fitBounds(worldBounds);
+// Ajustar el mapa al marco sin dejar espacios vacíos.
+function ajustarZoomMinimo() {
+  const size = map.getSize();
 
-  map.fitBounds(worldBounds, {
-    padding: [0, 0]
-  });
+  const zoomHorizontal = Math.log2(size.x / 360);
+  const zoomVertical = Math.log2(size.y / 180);
 
-  // Initial view is the maximum
-  // permitted zoom-out level.
+  // La imagen siempre cubrirá todo el marco.
+  const zoomMinimo = Math.max(
+    zoomHorizontal,
+    zoomVertical
+  );
 
-  map.setMinZoom(map.getZoom());
+  map.setMinZoom(zoomMinimo);
+
+  if (map.getZoom() < zoomMinimo) {
+    map.setZoom(zoomMinimo, {
+      animate: false
+    });
+  }
+}
+
+// Vista inicial.
+map.setView([0, 0], 0, {
+  animate: false
+});
+
+ajustarZoomMinimo();
+
+// Recalcular al cambiar el tamaño de pantalla.
+window.addEventListener('resize', () => {
+  map.invalidateSize();
+  ajustarZoomMinimo();
+});
 
 
   /* ========================================
