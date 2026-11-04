@@ -121,3 +121,17 @@
   height: auto;
   aspect-ratio: 2 / 1;
 }
+
+html,
+body {
+    background-color: #000000 !important;
+    min-height: 100%;
+}
+
+.tools-hub {
+    background-color: #000000 !important;
+}
+
+.orbit-panel {
+    background-color: #000000 !important;
+}
